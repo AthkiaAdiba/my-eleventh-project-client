@@ -5,6 +5,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import MyBookings from "../pages/MyBookings/MyBookings";
 import Rooms from "../pages/Rooms/Rooms";
+import RoomDetails from "../components/RoomDetails/RoomDetails";
 
 
 const router = createBrowserRouter([
@@ -31,7 +32,11 @@ const router = createBrowserRouter([
             {
                 path: '/rooms',
                 element: <Rooms></Rooms>,
-                // loader: () => fetch('http://localhost:5000/rooms')
+            },
+            {
+                path: '/roomDetails/:id',
+                element: <RoomDetails></RoomDetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/roomDetails/${params.id}`)
             }
         ]
     }
