@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "main_image": "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715309929/pdguavr2fivwn4szn8ep.jpg",
+        "room_name": "Suit Room",
+        "short_description": "Luxurious suite with a stunning view of the city skyline.",
+        "price_per_night": 300,
+        "size": "600 sqft",
+        "availability": "Is Available",
+        "room_images": [
+            "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715309929/pdguavr2fivwn4szn8ep.jpg",
+            "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715312925/ydxoyzrli8noqpy2jrre.webp",
+            "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715313319/drzorthy8yarmkco2fb5.jpg"
+        ],
+        "special_offers": "Complimentary breakfast included"
+    },
+    {
+        "id": 2,
+        "main_image": "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715312632/t9yf2ushqsauzxuunxps.jpg",
+        "room_name": "Executive Room",
+        "short_description": "Spacious room with modern amenities for business travelers.",
+        "price_per_night": 200,
+        "size": "400 sqft",
+        "availability": "Is Available",
+        "room_images": [
+            "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715312632/t9yf2ushqsauzxuunxps.jpg",
+            "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715312972/asffuxt6gepwrykcxlkf.webp",
+            "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715313359/yh8juogfxy8tqxwhuj32.jpg"
+        ],
+        "special_offers": "Free WiFi and access to the business center"
+    },
+    {
+        "id": 3,
+        "main_image": "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715312707/sqoohrqaedrkdfwme17x.jpg",
+        "room_name": "Family Suite",
+        "short_description": "Perfect accommodation for families, featuring separate bedrooms.",
+        "price_per_night": 350,
+        "size": "800 sqft",
+        "availability": "Is Available",
+        "room_images": [
+            "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715312707/sqoohrqaedrkdfwme17x.jpg",
+            "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715313033/bfovjptlocogqvqwldom.jpg",
+            "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715313399/iv2upmy4rvj8owenj6dj.jpg"
+        ],
+        "special_offers": "Kids stay and eat free"
+    },
+    {
+        "id": 4,
+        "main_image": "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715312768/kxli1xu95cjr9w6nyux0.jpg",
+        "room_name": "Standard Room",
+        "short_description": "Comfortable room with essential amenities for a relaxing stay.",
+        "price_per_night": 150,
+        "size": "300 sqft",
+        "availability": "Is Available",
+        "room_images": [
+            "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715312768/kxli1xu95cjr9w6nyux0.jpg",
+            "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715313082/aiaxdfcu1dcqesvnyfut.jpg",
+            "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715313445/gnbkvldfspet8tqhpn5b.jpg"
+        ],
+        "special_offers": "10% discount for stays longer than 3 nights"
+    },
+    {
+        "id": 5,
+        "main_image": "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715312817/cylfq02o6kgdydpcfwcn.jpg",
+        "room_name": "Luxury Penthouse",
+        "short_description": "Opulent penthouse suite with panoramic views of the ocean.",
+        "price_per_night": 1000,
+        "size": "1500 sqft",
+        "availability": "Is Available",
+        "room_images": [
+            "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715312817/cylfq02o6kgdydpcfwcn.jpg",
+            "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715313223/q2nhg5jwb6ekf1yncuch.png",
+            "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715313496/hkzrarxh3d5if459fkjv.jpg"
+        ],
+        "special_offers": "Private butler service included"
+    },
+    {
+        "id": 6,
+        "main_image": "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715312872/bmntkm6ozi0xuexcf06o.webp",
+        "room_name": "Cozy Cabin",
+        "short_description": "Rustic cabin nestled in the mountains, perfect for a romantic getaway.",
+        "price_per_night": 120,
+        "size": "250 sqft",
+        "availability": "Is Available",
+        "room_images": [
+            "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715312872/bmntkm6ozi0xuexcf06o.webp",
+            "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715313269/grletf7xbgcm6gvklifg.webp",
+            "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715313631/cxjkgqckvl4q0apypsdg.jpg"
+        ],
+        "special_offers": "Candlelit dinner for two on the house"
+    }
+]
