@@ -14,9 +14,11 @@ const RoomDetails = () => {
     const { user } = useContext(AuthContext);
     const loadedRoomDetails = useLoaderData();
     const [roomDetails, setRoomDetails] = useState(loadedRoomDetails);
-    const [startDate, setStartDate] = useState(new Date().toLocaleDateString());
+    const [startDate, setStartDate] = useState(new Date());
     const { _id, room_name, short_description, price_per_night, size, availability, room_images, special_offers } = roomDetails;
+
     console.log(startDate)
+
 
 
 
@@ -93,7 +95,7 @@ const RoomDetails = () => {
                                 <h3 className="text-3xl text-[#3D3931] font-medium">{room_name}</h3>
                                 <p className="py-4 text-2xl text-[#9B804E]">{short_description}</p>
                                 <p className="text-2xl text-[#9B804E]">Price: ${price_per_night} / Night</p>
-                                <p className="text-2xl text-[#9B804E]">Date: {startDate}</p>
+                                <p className="text-2xl text-[#9B804E]">Date: {startDate.toLocaleDateString()}</p>
 
                                 {/* <p className="py-4 text-2xl text-[#9B804E]">{startDate}</p> */}
                                 <div className="modal-action">
