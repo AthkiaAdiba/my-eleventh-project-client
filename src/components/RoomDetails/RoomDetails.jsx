@@ -6,52 +6,68 @@ import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
+import { useMutation } from "@tanstack/react-query";
 
-
+// toDateString()
 
 const RoomDetails = () => {
     const { user } = useContext(AuthContext);
-    const roomDetails = useLoaderData();
-    const [rooms, setRooms] = useState([]);
-    const [startDate, setStartDate] = useState(new Date());
+    const loadedRoomDetails = useLoaderData();
+    const [roomDetails, setRoomDetails] = useState(loadedRoomDetails);
+    const [startDate, setStartDate] = useState(new Date().toLocaleDateString());
     const { _id, room_name, short_description, price_per_night, size, availability, room_images, special_offers } = roomDetails;
+    console.log(startDate)
 
 
-    // fetching all data
-    useEffect(() => {
-        fetch('http://localhost:5000/rooms')
-            .then(res => res.json())
-            .then(data => setRooms(data))
-    }, [])
+
+    // // update availability
+    // const { mutateAsync } = useMutation({
+    //     mutationFn:  ({ _id, availability: 'Not Available' }) => {
+    //         const { data } = axios.patch(`http://localhost:5000/availability/${_id}`, { availability: 'Not Available' })
+    //         console.log(data)
+    //         return data
+    //     },
+    //     onSuccess: () => {
+    //         console.log('Updated')
+    //         toast.success('Updated')
+    //         // refresh ui 
+    //         refetch()
+    //     },
+    // })
 
     const handleRoomBook = () => {
         if (availability === 'Not Available') {
             return toast.error('This Room is already booked!')
         }
         const date = startDate;
+        
         const email = user?.email;
         const displayName = user?.displayName;
 
         const bookedRoom = { room_id: _id, date, email, displayName, room_name, short_description, price_per_night, size, special_offers }
         console.log(bookedRoom)
 
+
         axios.post('http://localhost:5000/bookRoom', bookedRoom)
             .then(data => {
                 console.log(data.data)
                 // update availability
                 if (data.data.insertedId) {
+                    // mutateAsync({ _id, availability: 'Not Available' })
+
                     axios.patch(`http://localhost:5000/availability/${_id}`, { availability: 'Not Available' })
                         .then(data => {
                             console.log(data.data)
-                            if(data.data.modifiedCount > 0){
-                                // update state
-                                roomDetails.availability = 'Not Available'
-                                // const remaining = rooms.filter(room => room._id !== _id)
-                                // const updated = rooms.find(room => room._id === _id)
-                                // updated.availability = 'Not Available'
-                                // const newRooms = [updated, ...remaining];
-                                // setRooms(newRooms)
-                            }
+                            // if (data.data.modifiedCount > 0) {
+                            //     // update state
+                            //     // setRoomDetails(roomDetails.availability = 'Not Available')
+
+                            //     // const remaining = rooms.filter(room => room._id !== _id)
+                            //     // const updated = rooms.find(room => room._id === _id)
+                            //     // updated.availability = 'Not Available'
+                            //     // const newRooms = [updated, ...remaining];
+                            //     // setRooms(newRooms)
+                            // }
                         })
                 }
             })
@@ -92,6 +108,8 @@ const RoomDetails = () => {
                                 <h3 className="text-3xl text-[#3D3931] font-medium">{room_name}</h3>
                                 <p className="py-4 text-2xl text-[#9B804E]">{short_description}</p>
                                 <p className="text-2xl text-[#9B804E]">Price: ${price_per_night} / Night</p>
+                                <p className="text-2xl text-[#9B804E]">Date: {startDate}</p>
+                                
                                 {/* <p className="py-4 text-2xl text-[#9B804E]">{startDate}</p> */}
                                 <div className="modal-action">
                                     <form method="dialog">
