@@ -20,27 +20,12 @@ const RoomDetails = () => {
 
 
 
-    // // update availability
-    // const { mutateAsync } = useMutation({
-    //     mutationFn:  ({ _id, availability: 'Not Available' }) => {
-    //         const { data } = axios.patch(`http://localhost:5000/availability/${_id}`, { availability: 'Not Available' })
-    //         console.log(data)
-    //         return data
-    //     },
-    //     onSuccess: () => {
-    //         console.log('Updated')
-    //         toast.success('Updated')
-    //         // refresh ui 
-    //         refetch()
-    //     },
-    // })
-
     const handleRoomBook = () => {
         if (availability === 'Not Available') {
             return toast.error('This Room is already booked!')
         }
         const date = startDate;
-        
+
         const email = user?.email;
         const displayName = user?.displayName;
 
@@ -53,21 +38,21 @@ const RoomDetails = () => {
                 console.log(data.data)
                 // update availability
                 if (data.data.insertedId) {
-                    // mutateAsync({ _id, availability: 'Not Available' })
 
                     axios.patch(`http://localhost:5000/availability/${_id}`, { availability: 'Not Available' })
                         .then(data => {
                             console.log(data.data)
-                            // if (data.data.modifiedCount > 0) {
-                            //     // update state
-                            //     // setRoomDetails(roomDetails.availability = 'Not Available')
+                            if (data.data.modifiedCount > 0) {
+                                setRoomDetails(loadedRoomDetails)
+                                // update state
+                                // setRoomDetails(roomDetails.availability = 'Not Available')
 
-                            //     // const remaining = rooms.filter(room => room._id !== _id)
-                            //     // const updated = rooms.find(room => room._id === _id)
-                            //     // updated.availability = 'Not Available'
-                            //     // const newRooms = [updated, ...remaining];
-                            //     // setRooms(newRooms)
-                            // }
+                                // const remaining = rooms.filter(room => room._id !== _id)
+                                // const updated = rooms.find(room => room._id === _id)
+                                // updated.availability = 'Not Available'
+                                // const newRooms = [updated, ...remaining];
+                                // setRooms(newRooms)
+                            }
                         })
                 }
             })
@@ -109,7 +94,7 @@ const RoomDetails = () => {
                                 <p className="py-4 text-2xl text-[#9B804E]">{short_description}</p>
                                 <p className="text-2xl text-[#9B804E]">Price: ${price_per_night} / Night</p>
                                 <p className="text-2xl text-[#9B804E]">Date: {startDate}</p>
-                                
+
                                 {/* <p className="py-4 text-2xl text-[#9B804E]">{startDate}</p> */}
                                 <div className="modal-action">
                                     <form method="dialog">

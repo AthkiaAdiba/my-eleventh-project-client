@@ -3,6 +3,10 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
 import { IoPencilSharp } from "react-icons/io5";
 import { MdDeleteForever } from "react-icons/md";
+import Swal from 'sweetalert2'
+import moment from 'moment';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 
 
 const MyBookings = () => {
@@ -20,6 +24,54 @@ const MyBookings = () => {
         }
 
     }, [user]);
+
+
+    const handleDelete = (_id, date) => {
+        console.log(_id);
+        console.log(date);
+        const bookingMoment = moment(date);
+        const currentDate = moment();
+        const differenceInDays = bookingMoment.diff(currentDate, 'days');
+        // console.log(bookingMoment)
+        // console.log(currentDate)
+        console.log(differenceInDays)
+        if (!differenceInDays >= 1){
+            return toast.error('Now You Can Not Cancel Your Booking')
+        }
+
+
+        Swal.fire({
+            title: "Are you sure?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:5000/deleteBookedRoom/${_id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your Booked Room has been deleted.",
+                                icon: "success"
+                            });
+                            const remaining = myBookings.filter(list => list._id !== _id);
+                            setMyBookings(remaining);
+                        }
+                    })
+            }
+        });
+    }
+
+
+
     return (
         <div className="pt-28 lg:pt-44 pb-20 px-[10%] bg-[#FBF6E8]">
             <div className="overflow-x-auto">
@@ -42,7 +94,7 @@ const MyBookings = () => {
                                 <td>{oneRow.room_name}</td>
                                 <td>{oneRow.date}</td>
                                 <td><Link to={`/update/${oneRow._id}`}><IoPencilSharp className="text-xl font-extrabold"></IoPencilSharp></Link></td>
-                                <th><MdDeleteForever className="text-xl font-extrabold"></MdDeleteForever></th>
+                                <th onClick={() => handleDelete(oneRow._id, oneRow.date)}><MdDeleteForever className="text-xl font-extrabold"></MdDeleteForever></th>
                             </tr>)
                         }
                     </tbody>
