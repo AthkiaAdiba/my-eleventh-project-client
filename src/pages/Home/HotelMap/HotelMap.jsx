@@ -6,7 +6,7 @@ const HotelMap = () => {
     const position = [23.797911, 90.414391]
     return (
         <MapContainer 
-        center={position} zoom={13} scrollWheelZoom={false} style={{ height: "400px", width: "100%" }}>
+        center={position} zoom={13} scrollWheelZoom={false} style={{ height: "400px", width: "100%", zIndex: "0" }}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

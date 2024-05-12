@@ -6,6 +6,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
+import { FaRegStar } from "react-icons/fa";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import Review from "../Review/Review";
 
 
 
@@ -18,8 +23,16 @@ const RoomDetails = () => {
     const [reviews, setReviews] = useState([])
     const [startDate, setStartDate] = useState(new Date());
     const { _id, room_name, short_description, price_per_night, size, availability, room_images, special_offers } = roomDetails;
-
     console.log(reviews)
+
+
+    var settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+    };
 
 
     useEffect(() => {
@@ -121,11 +134,12 @@ const RoomDetails = () => {
                 </div>
             </div>
             {/* review section */}
-            {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                {
-                    reviews.map(review => <Review key={review._id} review={review}></Review>)
-                }
-            </div> */}
+            {reviews.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    {reviews.map(review => <Review key={review._id} review={review}></Review>)}
+                </div>
+            ) :
+                (<p className="text-center text-6xl text-[#3D3931] font-forum">No reviews available for this room.</p>)}
         </div>
     );
 };
