@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import DatePicker from "react-datepicker";
@@ -8,16 +8,27 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 
 
+
 // toDateString()
 
 const RoomDetails = () => {
     const { user } = useContext(AuthContext);
     const loadedRoomDetails = useLoaderData();
     const [roomDetails, setRoomDetails] = useState(loadedRoomDetails);
+    const [reviews, setReviews] = useState([])
     const [startDate, setStartDate] = useState(new Date());
     const { _id, room_name, short_description, price_per_night, size, availability, room_images, special_offers } = roomDetails;
 
-    console.log(startDate)
+    console.log(reviews)
+
+
+    useEffect(() => {
+        axios.get(`http://localhost:5000/comments/${_id}`)
+            .then(data => {
+                console.log(data.data)
+                setReviews(data.data)
+            })
+    }, [_id])
 
 
 
@@ -109,6 +120,12 @@ const RoomDetails = () => {
                     </div>
                 </div>
             </div>
+            {/* review section */}
+            {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                {
+                    reviews.map(review => <Review key={review._id} review={review}></Review>)
+                }
+            </div> */}
         </div>
     );
 };

@@ -9,7 +9,7 @@ import moment from 'moment';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
 import axios from "axios";
-import Reviews from "../../components/Reviews/Reviews";
+
 
 
 const MyBookings = () => {

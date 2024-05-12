@@ -1,4 +1,5 @@
 import HotelMap from "../HotelMap/HotelMap";
+import ReviewSlider from "../ReviewSlider/ReviewSlider";
 import Slider from "../Slider/Slider";
 
 
@@ -6,9 +7,10 @@ const Home = () => {
     return (
         <div>
             <Slider></Slider>
-            <div className="mb-24 mt-24 w-full">
+            <div className="mb-24 mt-24 w-full -z-50">
                 <HotelMap></HotelMap>
             </div>
+            <ReviewSlider></ReviewSlider>
         </div>
     );
 };

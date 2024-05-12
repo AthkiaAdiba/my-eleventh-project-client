@@ -2,18 +2,56 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
+import Swal from 'sweetalert2'
+import { useLoaderData } from "react-router-dom";
+import axios from "axios";
 
 
 const Reviews = () => {
     const { user } = useContext(AuthContext);
+    const bookedRoomDetails = useLoaderData()
     const [startDate, setStartDate] = useState(new Date());
     console.log(startDate)
+    // console.log(bookedRoomDetails)
+
+
+    const handleAddReview = e => {
+        e.preventDefault();
+
+        const form = e.target;
+
+        const room_id = bookedRoomDetails.room_id;
+        const user_image = user?.photoURL;
+        const userEmail = user?.email;
+        const userName = user?.displayName;
+        const rating = form.rating.value;
+        const comment = form.comment.value;
+        const timestamp = startDate;
+
+        const review = { room_id, user_image, userName, userEmail, rating, comment, timestamp }
+        console.log(review);
+
+
+        axios.post('http://localhost:5000/addComment', review)
+            .then(data => {
+                console.log(data.data)
+                if (data.data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Your Comment Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                    form.reset();
+                }
+            })
+    }
 
 
     return (
         <div className="bg-[#FBF6E8] font-forum pb-24 py-16 px-3 lg:px-24 mt-16 lg:mt-20">
             <h2 className="text-4xl font-extrabold text-center mb-5 text-[#3D3931]">Give Your Review</h2>
-            <form>
+            <form onSubmit={handleAddReview}>
                 {/* rating and userName row */}
                 <div className="md:flex mb-3 lg:mb-8">
                     <div className="form-control md:w-1/2 mb-3 lg:mb-0">
