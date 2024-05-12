@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import DatePicker from "react-datepicker";
@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
-import { useMutation } from "@tanstack/react-query";
+
 
 // toDateString()
 
@@ -107,12 +107,6 @@ const RoomDetails = () => {
                             </div>
                         </dialog>
                     </div>
-                    {/* <div>
-                        <input className="mt-6 bg-[#9B804E] p-2 text-white text-xl" type="date" name="date" id="" />
-                        <br />
-                        <input className="mt-6 bg-[#9B804E] p-2 text-white text-xl" type="submit" value="Book Now" />
-                        <button className="mt-6 bg-[#9B804E] p-2 text-white text-xl">Book Now</button>
-                    </div> */}
                 </div>
             </div>
         </div>

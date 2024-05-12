@@ -115,8 +115,7 @@ const MyBookings = () => {
                     </tbody>
                 </table>
             </div>
-            {/* review table */}
-            <Reviews></Reviews>
+
         </div>
     );
 };
