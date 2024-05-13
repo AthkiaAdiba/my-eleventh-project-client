@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import DatePicker from "react-datepicker";
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,17 +12,17 @@ import Review from "../Review/Review";
 
 
 
-// toDateString()
 
 const RoomDetails = () => {
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate()
     const loadedRoomDetails = useLoaderData();
     const [roomDetails, setRoomDetails] = useState(loadedRoomDetails);
     const [reviews, setReviews] = useState([])
     const [startDate, setStartDate] = useState(new Date());
     const { _id, room_name, short_description, price_per_night, size, availability, room_images, special_offers } = roomDetails;
     console.log(reviews)
-
+    
 
 
     useEffect(() => {
@@ -34,12 +34,23 @@ const RoomDetails = () => {
     }, [_id])
 
 
-
-
-    const handleRoomBook = () => {
-        if (availability === 'Not Available') {
+    const handleBookNow = () => {
+        if (!user) {
+            navigate('/login')
+        }
+        else if (availability === 'Not Available') {
             return toast.error('This Room is already booked!')
         }
+        else {
+            document.getElementById('my_modal_1').showModal()
+        }
+    }
+
+    const handleRoomBook = () => {
+
+        // if (availability === 'Not Available') {
+        //     return toast.error('This Room is already booked!')
+        // }
         const date = startDate;
 
         const email = user?.email;
@@ -103,19 +114,18 @@ const RoomDetails = () => {
                             selected={startDate} onChange={(date) => setStartDate(date)} />
                         <br />
                         {/* Open the modal using document.getElementById('ID').showModal() method */}
-                        <button className="mt-6 p-2 bg-[#9B804E] text-white text-2xl" onClick={() => document.getElementById('my_modal_1').showModal()}>Book Now</button>
+                        <button className="mt-6 p-2 bg-[#9B804E] text-white text-2xl" onClick={() => handleBookNow()}>Book Now</button>
                         <dialog id="my_modal_1" className="modal">
                             <div className="modal-box bg-[#FBF6E8]">
                                 <h3 className="text-3xl text-[#3D3931] font-medium">{room_name}</h3>
                                 <p className="py-4 text-2xl text-[#9B804E]">{short_description}</p>
                                 <p className="text-2xl text-[#9B804E]">Price: ${price_per_night} / Night</p>
                                 <p className="text-2xl text-[#9B804E]">Date: {startDate.toLocaleDateString()}</p>
-
-                                {/* <p className="py-4 text-2xl text-[#9B804E]">{startDate}</p> */}
+                                <button onClick={handleRoomBook} className="bg-[#9B804E] p-2 text-white text-2xl mt-10">Confirm</button>
                                 <div className="modal-action">
                                     <form method="dialog">
                                         {/* if there is a button in form, it will close the modal */}
-                                        <button onClick={handleRoomBook} className="bg-[#9B804E] p-2 text-white text-2xl">Confirm</button>
+                                        <button className="bg-[#9B804E] p-2 text-white text-2xl">Close</button>
                                     </form>
                                 </div>
                             </div>

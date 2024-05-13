@@ -4,10 +4,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { FaGithub, FaGoogle } from "react-icons/fa";
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
-    const { login, loginWithGoogle, loginWithGithub } = useContext(AuthContext);
+    const { login, loginWithGoogle } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -53,22 +53,6 @@ const Login = () => {
             })
     }
 
-    // login with Github
-    const handleLoginWithGithub = () => {
-        loginWithGithub()
-            .then(result => {
-                console.log(result.user)
-                toast.success('You have logged in successfully');
-                navigate(location?.state ? location.state : '/')
-
-
-            })
-            .catch(error => {
-                console.error(error)
-
-            })
-    }
-
     return (
         <div className="pt-28 pb-20 bg-[#2095AE]">
             <div className="w-full font-barlow mx-auto max-w-md p-8 space-y-3 rounded-none text-gray-100">
@@ -98,12 +82,6 @@ const Login = () => {
                         <button onClick={handleLoginWithGoogle} className="text-lg flex items-center justify-center w-full p-4 space-x-4 rounded-md focus:ring-2 focus:ring-offset-1 border-[#0f2454] bg-[#0f2454] border-2">
                             <FaGoogle></FaGoogle>
                             <p>Login with Google</p>
-                        </button>
-                    </div>
-                    <div>
-                        <button onClick={handleLoginWithGithub} className="text-lg flex items-center justify-center w-full p-4 space-x-4 border-2 rounded-md focus:ring-2 focus:ring-offset-1 border-[#0f2454] bg-[#0f2454] focus:dark:ring-violet-600">
-                            <FaGithub></FaGithub>
-                            <p>Login with GitHub</p>
                         </button>
                     </div>
                 </div>

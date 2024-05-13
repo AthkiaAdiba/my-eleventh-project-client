@@ -21,7 +21,7 @@ const MyBookings = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/bookedRoom/${user?.email}`)
+            fetch(`http://localhost:5000/bookedRoom/${user?.email}`, {credentials: 'include'})
                 .then(res => res.json())
                 .then(data => setMyBookings(data))
         }
