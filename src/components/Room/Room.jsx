@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 
 const Room = ({ room }) => {
@@ -18,5 +19,9 @@ const Room = ({ room }) => {
         </Link>
     );
 };
+
+Room.propTypes = {
+    room: PropTypes.object
+}
 
 export default Room;
