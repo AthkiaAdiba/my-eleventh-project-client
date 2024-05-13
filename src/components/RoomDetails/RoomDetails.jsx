@@ -6,10 +6,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
-import { FaRegStar } from "react-icons/fa";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 import Review from "../Review/Review";
 
 
@@ -25,14 +23,6 @@ const RoomDetails = () => {
     const { _id, room_name, short_description, price_per_night, size, availability, room_images, special_offers } = roomDetails;
     console.log(reviews)
 
-
-    var settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-    };
 
 
     useEffect(() => {

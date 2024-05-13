@@ -1,7 +1,6 @@
 import { CgProfile } from "react-icons/cg";
-import { CiLight } from "react-icons/ci";
 import { IoIosList } from "react-icons/io";
-import { MdLogout, MdOutlineDarkMode } from "react-icons/md";
+import { MdLogout } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../../assets/logo (1).svg'
 import { useContext } from "react";
@@ -44,18 +43,10 @@ const Navbar = () => {
                             {navLinks}
                             <button className="btn bg-[#9B804E]"><Link to='/login' className="mr-5 text-white border-none font-barlow text-xl">Login</Link></button>
                             <button className="btn bg-[#9B804E]"><Link to='/register' className="w-14 lg:w-20 text-white border-none font-barlow text-xl">Register</Link></button>
-                            {/* theme change */}
-                            {/* <span onClick={toggleTheme} className="text-2xl mr-3 text-center">
-                                {
-                                    theme === "dark" ? <CiLight className="dark:text-white"></CiLight> :
-                                        <MdOutlineDarkMode></MdOutlineDarkMode>
-                                }
-                            </span> */}
                         </ul>
                     </div>
                     <div className="hidden md:block lg:block">
                         <img className="w-40" src={logo} alt="" />
-                        {/* <h2 className="font-sarabun text-base font-light text-[#0b6354]">AUGUSTINE</h2> */}
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -66,13 +57,6 @@ const Navbar = () => {
                 {
                     user ?
                         <div className="navbar-end flex gap-0 lg:gap-3 items-center">
-                            {/* theme change */}
-                            {/* <span onClick={toggleTheme} className="hidden md:hidden lg:block text-2xl mr-3 text-center">
-                                {
-                                    theme === "dark" ? <CiLight className="dark:text-white"></CiLight> :
-                                        <MdOutlineDarkMode></MdOutlineDarkMode>
-                                }
-                            </span> */}
                             <details className="dropdown mr-[150%] md:mr-[45%] lg:mr-0">
                                 <summary className="btn w-10 lg:w-12 h-10 lg:h-12 rounded-full">
                                     <div className="avatar tooltip tooltip-right md:tooltip-left lg:tooltip-left" data-tip={user.displayName}>
@@ -127,13 +111,6 @@ const Navbar = () => {
                             </div>
                             <div className="hidden lg:block">
                                 <div className="flex items-center">
-                                    {/* theme change */}
-                                    {/* <span onClick={toggleTheme} className="text-2xl mr-3 text-center">
-                                        {
-                                            theme === "dark" ? <CiLight className="dark:text-white"></CiLight> :
-                                                <MdOutlineDarkMode></MdOutlineDarkMode>
-                                        }
-                                    </span> */}
                                     <Link to='/login' className="btn mr-5 w-14 lg:w-20 bg-[#9B804E] text-white border-none font-barlow text-xl">Login</Link>
                                     <Link to='/register' className="btn w-14 lg:w-20 bg-[#9B804E] text-white border-none font-barlow text-xl">Register</Link>
                                 </div>

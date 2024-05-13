@@ -12,7 +12,8 @@
             "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715312925/ydxoyzrli8noqpy2jrre.webp",
             "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715313319/drzorthy8yarmkco2fb5.jpg"
         ],
-        "special_offers": "Complimentary breakfast included"
+        "special_offers": "Complimentary breakfast included",
+        "review_count": 0
     },
     {
         "id": 2,
@@ -27,7 +28,8 @@
             "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715312972/asffuxt6gepwrykcxlkf.webp",
             "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715313359/yh8juogfxy8tqxwhuj32.jpg"
         ],
-        "special_offers": "Free WiFi and access to the business center"
+        "special_offers": "Free WiFi and access to the business center",
+        "review_count": 0
     },
     {
         "id": 3,
@@ -42,7 +44,8 @@
             "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715313033/bfovjptlocogqvqwldom.jpg",
             "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715313399/iv2upmy4rvj8owenj6dj.jpg"
         ],
-        "special_offers": "Kids stay and eat free"
+        "special_offers": "Kids stay and eat free",
+        "review_count": 0
     },
     {
         "id": 4,
@@ -57,7 +60,8 @@
             "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715313082/aiaxdfcu1dcqesvnyfut.jpg",
             "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715313445/gnbkvldfspet8tqhpn5b.jpg"
         ],
-        "special_offers": "10% discount for stays longer than 3 nights"
+        "special_offers": "10% discount for stays longer than 3 nights",
+        "review_count": 0
     },
     {
         "id": 5,
@@ -66,13 +70,14 @@
         "short_description": "Opulent penthouse suite with panoramic views of the ocean.",
         "price_per_night": 1000,
         "size": "1500 sqft",
-        "availability": "Is Available",
+        "availability": "Available",
         "room_images": [
             "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715312817/cylfq02o6kgdydpcfwcn.jpg",
             "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715313223/q2nhg5jwb6ekf1yncuch.png",
             "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715313496/hkzrarxh3d5if459fkjv.jpg"
         ],
-        "special_offers": "Private butler service included"
+        "special_offers": "Private butler service included",
+        "review_count": 0
     },
     {
         "id": 6,
@@ -81,12 +86,13 @@
         "short_description": "Rustic cabin nestled in the mountains, perfect for a romantic getaway.",
         "price_per_night": 120,
         "size": "250 sqft",
-        "availability": "Is Available",
+        "availability": "Available",
         "room_images": [
             "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715312872/bmntkm6ozi0xuexcf06o.webp",
             "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715313269/grletf7xbgcm6gvklifg.webp",
             "https://res.cloudinary.com/dv6fgvj2c/image/upload/v1715313631/cxjkgqckvl4q0apypsdg.jpg"
         ],
-        "special_offers": "Candlelit dinner for two on the house"
+        "special_offers": "Candlelit dinner for two on the house",
+        "review_count": 0
     }
 ]
