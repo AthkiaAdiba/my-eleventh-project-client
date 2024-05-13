@@ -71,14 +71,7 @@ const RoomDetails = () => {
                             // console.log(data.data)
                             if (data.data.modifiedCount > 0) {
                                 setRoomDetails(loadedRoomDetails)
-                                // update state
-                                // setRoomDetails(roomDetails.availability = 'Not Available')
-
-                                // const remaining = rooms.filter(room => room._id !== _id)
-                                // const updated = rooms.find(room => room._id === _id)
-                                // updated.availability = 'Not Available'
-                                // const newRooms = [updated, ...remaining];
-                                // setRooms(newRooms)
+                                
                             }
                         })
                 }
