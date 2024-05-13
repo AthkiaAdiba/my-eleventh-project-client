@@ -8,7 +8,7 @@ const FeaturedRooms = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/featuredRooms')
+        fetch('https://my-eleventh-project-server.vercel.app/featuredRooms')
             .then(res => res.json())
             .then(data => setFeaturedRooms(data))
     }, [])

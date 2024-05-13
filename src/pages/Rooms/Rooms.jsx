@@ -8,17 +8,17 @@ const Rooms = () => {
     const [maxPrice, setMaxPrice] = useState('1000');
 
     useEffect(() => {
-        fetch(`http://localhost:5000/rooms?minPrice=${minPrice}&maxPrice=${maxPrice}`)
+        fetch(`https://my-eleventh-project-server.vercel.app/rooms?minPrice=${minPrice}&maxPrice=${maxPrice}`)
             .then(res => res.json())
             .then(data => setRooms(data))
     }, [minPrice, maxPrice])
 
     const handleFilter = e => {
         const value = e.target.value;
-        console.log(value)
+        // console.log(value)
         const value2 = value.split('-')[0];
         const value3 = value.split('-')[1]
-        console.log(value2, value3)
+        // console.log(value2, value3)
         setMinPrice(value2);
         setMaxPrice(value3);
     }

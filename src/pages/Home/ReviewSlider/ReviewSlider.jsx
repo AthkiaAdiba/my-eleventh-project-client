@@ -9,7 +9,7 @@ import { FaRegStar } from "react-icons/fa";
 const ReviewSlider = () => {
     const [reviews, setReviews] = useState([]);
 
-    console.log(reviews)
+    // console.log(reviews)
 
     var settings = {
         dots: true,
@@ -20,9 +20,9 @@ const ReviewSlider = () => {
     };
 
     useEffect(() => {
-        axios.get('http://localhost:5000/allReviews')
+        axios.get('https://my-eleventh-project-server.vercel.app/allReviews')
             .then(data => {
-                console.log(data.data)
+                // console.log(data.data)
                 setReviews(data.data)
             })
     }, [])

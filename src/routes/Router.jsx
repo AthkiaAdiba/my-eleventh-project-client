@@ -41,17 +41,17 @@ const router = createBrowserRouter([
             {
                 path: '/roomDetails/:id',
                 element: <RoomDetails></RoomDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/roomDetails/${params.id}`)
+                loader: ({params}) => fetch(`https://my-eleventh-project-server.vercel.app/roomDetails/${params.id}`)
             },
             {
                 path: '/updateDate/:id',
                 element: <UpdateDate></UpdateDate>,
-                loader: ({params}) => fetch(`http://localhost:5000/bookedRoomDetails/${params.id}`)
+                loader: ({params}) => fetch(`https://my-eleventh-project-server.vercel.app/bookedRoomDetails/${params.id}`)
             },
             {
                 path: '/review/:id',
                 element: <Reviews></Reviews>,
-                loader: ({params}) => fetch(`http://localhost:5000/bookedRoomDetails/${params.id}`)
+                loader: ({params}) => fetch(`https://my-eleventh-project-server.vercel.app/bookedRoomDetails/${params.id}`)
             }
         ]
     }

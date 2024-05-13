@@ -24,7 +24,7 @@ const Login = () => {
         // login user
         login(email, password)
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 toast.success('You have logged in successfully');
                 reset();
 
@@ -43,7 +43,7 @@ const Login = () => {
     const handleLoginWithGoogle = () => {
         loginWithGoogle()
             .then(result => {
-                console.log(result.user)
+                // console.log(result.user)
                 toast.success('You have logged in successfully');
                 navigate(location?.state ? location.state : '/')
 

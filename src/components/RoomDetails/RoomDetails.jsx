@@ -21,14 +21,14 @@ const RoomDetails = () => {
     const [reviews, setReviews] = useState([])
     const [startDate, setStartDate] = useState(new Date());
     const { _id, room_name, short_description, price_per_night, size, availability, room_images, special_offers } = roomDetails;
-    console.log(reviews)
+    // console.log(reviews)
     
 
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/comments/${_id}`)
+        axios.get(`https://my-eleventh-project-server.vercel.app/comments/${_id}`)
             .then(data => {
-                console.log(data.data)
+                // console.log(data.data)
                 setReviews(data.data)
             })
     }, [_id])
@@ -57,18 +57,18 @@ const RoomDetails = () => {
         const displayName = user?.displayName;
 
         const bookedRoom = { room_id: _id, date, email, displayName, room_name, short_description, price_per_night, size, special_offers }
-        console.log(bookedRoom)
+        // console.log(bookedRoom)
 
 
-        axios.post('http://localhost:5000/bookRoom', bookedRoom)
+        axios.post('https://my-eleventh-project-server.vercel.app/bookRoom', bookedRoom)
             .then(data => {
-                console.log(data.data)
+                // console.log(data.data)
                 // update availability
                 if (data.data.insertedId) {
 
-                    axios.patch(`http://localhost:5000/availability/${_id}`, { availability: 'Not Available' })
+                    axios.patch(`https://my-eleventh-project-server.vercel.app/availability/${_id}`, { availability: 'Not Available' })
                         .then(data => {
-                            console.log(data.data)
+                            // console.log(data.data)
                             if (data.data.modifiedCount > 0) {
                                 setRoomDetails(loadedRoomDetails)
                                 // update state

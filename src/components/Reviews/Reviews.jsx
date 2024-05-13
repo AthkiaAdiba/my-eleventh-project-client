@@ -11,7 +11,7 @@ const Reviews = () => {
     const { user } = useContext(AuthContext);
     const bookedRoomDetails = useLoaderData()
     const [startDate, setStartDate] = useState(new Date());
-    console.log(startDate)
+    // console.log(startDate)
     // console.log(bookedRoomDetails)
 
 
@@ -29,12 +29,12 @@ const Reviews = () => {
         const timestamp = startDate;
 
         const review = { room_id, user_image, userName, userEmail, rating, comment, timestamp }
-        console.log(review);
+        // console.log(review);
 
 
-        axios.post('http://localhost:5000/addComment', review)
+        axios.post('https://my-eleventh-project-server.vercel.app/addComment', review)
             .then(data => {
-                console.log(data.data)
+                // console.log(data.data)
                 if (data.data.insertedId) {
                     Swal.fire({
                         title: 'Success!',

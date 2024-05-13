@@ -21,7 +21,7 @@ const MyBookings = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/bookedRoom/${user?.email}`, {credentials: 'include'})
+            fetch(`https://my-eleventh-project-server.vercel.app/bookedRoom/${user?.email}`, {credentials: 'include'})
                 .then(res => res.json())
                 .then(data => setMyBookings(data))
         }
@@ -37,7 +37,7 @@ const MyBookings = () => {
         const differenceInDays = bookingMoment.diff(currentDate, 'days');
         // console.log(bookingMoment)
         // console.log(currentDate)
-        console.log(differenceInDays)
+        // console.log(differenceInDays)
         if (!differenceInDays >= 1) {
             return toast.error('Now You Can Not Cancel Your Booking')
         }
@@ -53,17 +53,17 @@ const MyBookings = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/deleteBookedRoom/${_id}`, {
+                fetch(`https://my-eleventh-project-server.vercel.app/deleteBookedRoom/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         if (data.deletedCount > 0) {
                             // update availability
-                            axios.patch(`http://localhost:5000/availability/${room_id}`, { availability: 'Available' })
+                            axios.patch(`https://my-eleventh-project-server.vercel.app/availability/${room_id}`, { availability: 'Available' })
                                 .then(data => {
-                                    console.log(data.data)
+                                    // console.log(data.data)
                                 })
                             Swal.fire({
                                 title: "Deleted!",

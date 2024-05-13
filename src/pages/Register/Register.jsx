@@ -19,12 +19,12 @@ const Register = () => {
 
     const onSubmit = (data) => {
         const { name, email, image, password } = data;
-        console.log(data)
+        // console.log(data)
 
         // create user
         createUser(email, password)
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 const userInformation = result.user;
                 toast.success('Account created successfully');
                 reset();
@@ -32,14 +32,14 @@ const Register = () => {
                 // update profile
                 updateInformation(userInformation, name, image)
                     .then(() => {
-                        console.log('profile updated')
+                        // console.log('profile updated')
                     })
                     .catch()
 
                 // log out
                 logOut()
                     .then(() => {
-                        console.log('logged out successfully')
+                        // console.log('logged out successfully')
                     })
                     .catch()
             })

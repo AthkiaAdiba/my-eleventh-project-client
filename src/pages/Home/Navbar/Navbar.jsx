@@ -26,7 +26,7 @@ const Navbar = () => {
     const handleLogOut = () => {
         logOut()
             .then(() => {
-                console.log('logged out successfully')
+                // console.log('logged out successfully')
             })
             .catch()
     }

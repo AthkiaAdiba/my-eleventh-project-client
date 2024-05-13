@@ -8,14 +8,14 @@ import { toast } from "react-toastify";
 const UpdateDate = () => {
     const [startDate, setStartDate] = useState(new Date());
     const bookedRoomDetails = useLoaderData();
-    console.log(bookedRoomDetails)
+    // console.log(bookedRoomDetails)
     const { date, _id } = bookedRoomDetails;
 
     const handleUpdateDate = () => {
 
-        axios.patch(`http://localhost:5000/updateDate/${_id}`, { date: startDate })
+        axios.patch(`https://my-eleventh-project-server.vercel.app/updateDate/${_id}`, { date: startDate })
             .then(data => {
-                console.log(data.data)
+                // console.log(data.data)
                 if (data.data.modifiedCount > 0) {
                     toast.success('Updated Successfully')
                 }
