@@ -66,7 +66,7 @@ const Navbar = () => {
                                     </div>
                                 </summary>
                                 <ul className="shadow menu dropdown-content z-[1] rounded-full w-52">
-                                    <div className="h-full p-3 space-y-2 bg-[#0f2454] text-gray-100">
+                                    <div className="h-full p-3 space-y-2 bg-[#9B804E] text-gray-100">
                                         <div className="items-center p-2 space-x-4">
                                             <h2 className="text-lg font-semibold text-center">{user.displayName}</h2>
                                             <p>{user.email}</p>
@@ -80,9 +80,9 @@ const Navbar = () => {
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link to='/myList' className="space-x-3 flex items-center">
+                                                    <Link to='/myBookings' className="space-x-3 flex items-center">
                                                         <IoIosList className="text-lg"></IoIosList>
-                                                        <p>My List</p>
+                                                        <p>My Bookings</p>
                                                     </Link>
                                                 </li>
                                             </ul>
