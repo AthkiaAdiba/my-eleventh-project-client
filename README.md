@@ -2,7 +2,7 @@
 
 #### Live Site:
 
-   - [TRAVOL](https://my-eleventh-project-c0e85.web.app)
+   - [Herittage Hotel & Stay](https://my-eleventh-project-c0e85.web.app)
 
 ### category's name: Assignment_category_0004
  
