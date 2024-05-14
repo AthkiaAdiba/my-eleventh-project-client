@@ -68,12 +68,14 @@ const AuthProvider = ({ children }) => {
             // if user exists then issue a token
             if (currentUser) {
                 axios.post('https://my-eleventh-project-server.vercel.app/jwt', loggedUser, { withCredentials: true })
+                    // eslint-disable-next-line no-unused-vars
                     .then(res => {
                         // console.log('token response', res.data)
                     })
             }
             else {
                 axios.post('https://my-eleventh-project-server.vercel.app/logout', loggedUser, { withCredentials: true })
+                    // eslint-disable-next-line no-unused-vars
                     .then(res => {
                         // console.log(res.data)
                     })

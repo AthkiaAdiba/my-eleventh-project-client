@@ -24,7 +24,7 @@ const Rooms = () => {
     }
 
     return (
-        <div className="px-[5%] pt-28 lg:pt-36 pb-20 bg-[#FBF6E8]">
+        <div className="px-[5%] pt-28 lg:pt-36 pb-24 bg-[#FBF6E8]">
             {/* dropdown */}
             <div className="text-center">
                 <select 

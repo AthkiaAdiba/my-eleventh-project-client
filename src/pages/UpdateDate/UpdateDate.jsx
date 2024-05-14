@@ -24,7 +24,7 @@ const UpdateDate = () => {
 
 
     return (
-        <div className="mx-auto mt-40 text-center font-forum space-y-3">
+        <div className="mx-auto pt-40 pb-16 text-center font-forum space-y-3 bg-[#FBF6E8]">
             <h2 className="text-2xl font-medium text-[#3D3931]">Your Booking Date: {new Date(date).toLocaleDateString()}</h2>
             {/* <label className="label mx-auto">
                 <span className="label-text text-2xl text-[#9B804E] text-center">Pick Your New Booking Date:</span>

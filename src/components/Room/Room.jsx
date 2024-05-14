@@ -6,8 +6,8 @@ const Room = ({ room }) => {
     const { _id, main_image, room_name, price_per_night, review_count } = room;
     return (
         <Link to={`/roomDetails/${_id}`}>
-            <div className="relative font-forum mb-5">
-                <img src={main_image} alt="" className="object-cover object-center w-full h-72 bg-gray-500" />
+            <div className="relative font-forum mb-5" data-aos="zoom-in" data-aos-duration="2000">
+                <img src={main_image} alt="" className="hover:scale-[1.05] object-cover object-center w-full h-72 bg-gray-500" />
                 <h2 className="mt-10 text-4xl font-medium tracking-wide text-[#3D3931] font-forum">{room_name}</h2>
                 <p className="mt-4 text-3xl text-[#9B804E]">Total Review: {review_count}</p>
                 <div className="absolute top-4">

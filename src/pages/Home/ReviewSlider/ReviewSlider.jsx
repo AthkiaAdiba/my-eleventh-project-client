@@ -27,7 +27,7 @@ const ReviewSlider = () => {
             })
     }, [])
     return (
-        <div className='mb-10 mt-12 lg:mt-20 mx-0 lg:mx-7'>
+        <div className='mb-32 mt-12 lg:mt-20 mx-0 lg:mx-7'>
             <Slider {...settings}>
                 {reviews.map(review => (
                     <section key={review._id} className="my-8 bg-[#3D3931]">
