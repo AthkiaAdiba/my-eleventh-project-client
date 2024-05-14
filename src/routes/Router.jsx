@@ -10,6 +10,7 @@ import UpdateDate from "../pages/UpdateDate/UpdateDate";
 import Reviews from "../components/Reviews/Reviews";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
+import Contact from "../pages/Comtact/Contact";
 
 
 const router = createBrowserRouter([
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
                 path: '/review/:id',
                 element: <Reviews></Reviews>,
                 loader: ({params}) => fetch(`https://my-eleventh-project-server.vercel.app/bookedRoomDetails/${params.id}`)
+            },
+            {
+                path: '/contact',
+                element: <Contact></Contact>
             }
         ]
     }
