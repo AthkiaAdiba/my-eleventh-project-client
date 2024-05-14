@@ -1,4 +1,4 @@
-# HERITTAGE Hotel & Stay
+# Herittage Hotel & Stay
 
 #### Live Site:
 
