@@ -91,7 +91,7 @@ const RoomDetails = () => {
                 <div className="space-y-2">
                     <h2 className="text-6xl font-medium tracking-wide text-[#3D3931]">{room_name}</h2>
                     <p className="text-3xl text-[#9B804E]">{short_description}</p>
-                    <div className="flex justify-between text-2xl text-[#9B804E]">
+                    <div className="flex flex-col lg:flex-row justify-between text-2xl text-[#9B804E]">
                         <p>Price: ${price_per_night} / Night</p>
                         <p>Size: {size}</p>
                     </div>

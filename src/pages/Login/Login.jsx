@@ -23,6 +23,7 @@ const Login = () => {
 
         // login user
         login(email, password)
+            // eslint-disable-next-line no-unused-vars
             .then(result => {
                 // console.log(result.user);
                 toast.success('You have logged in successfully');
@@ -42,6 +43,7 @@ const Login = () => {
     // login with google
     const handleLoginWithGoogle = () => {
         loginWithGoogle()
+            // eslint-disable-next-line no-unused-vars
             .then(result => {
                 // console.log(result.user)
                 toast.success('You have logged in successfully');
@@ -54,12 +56,12 @@ const Login = () => {
     }
 
     return (
-        <div className="pt-28 pb-20 bg-[#2095AE]">
-            <div className="w-full font-barlow mx-auto max-w-md p-8 space-y-3 rounded-none text-gray-100">
-                <h1 className="text-2xl font-bold text-center">Login</h1>
+        <div className="pt-24 pb-16 bg-[#FBF6E8]">
+            <div className="bg-[#9B804E] w-full font-forum mx-auto max-w-md p-8 space-y-3 rounded-none text-white">
+                <h1 className="text-4xl font-bold text-center text-white">Login</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                     <div className="space-y-1 text-lg">
-                        <label className="block font-medium text-xl">Email Address</label>
+                        <label className="block font-medium text-xl text-white">Email Address</label>
                         <input type="email" name="email" placeholder="Enter Your Email" className="w-full px-4 py-3 rounded-md border border-gray-700 bg-gray-100 text-black focus:border-violet-400" {...register("email", { required: true })} />
                         {errors.password && <span className="text-red-700">This field is required</span>}
                     </div>
@@ -70,23 +72,23 @@ const Login = () => {
                         {errors.password && <span className="text-red-700">This field is required</span>}
                     </div>
 
-                    <button className="block w-full p-3 text-center rounded-sm bg-[#0f2454] text-white text-lg">Login</button>
+                    <button className="block w-full p-3 text-center rounded-sm bg-[#3D3931] text-white text-lg">Login</button>
                 </form>
                 <div className="flex items-center pt-4 space-x-1">
-                    <div className="flex-1 h-px sm:w-16 bg-[#0f2454]"></div>
+                    <div className="flex-1 h-px sm:w-16 bg-[#3D3931]"></div>
                     <p className="px-3 text-lg font-medium">Or Login With</p>
-                    <div className="flex-1 h-px sm:w-16 bg-[#0f2454]"></div>
+                    <div className="flex-1 h-px sm:w-16 bg-[#3D3931]"></div>
                 </div>
                 <div className="space-y-5">
                     <div>
-                        <button onClick={handleLoginWithGoogle} className="text-lg flex items-center justify-center w-full p-4 space-x-4 rounded-md focus:ring-2 focus:ring-offset-1 border-[#0f2454] bg-[#0f2454] border-2">
+                        <button onClick={handleLoginWithGoogle} className="text-lg flex items-center justify-center w-full p-4 space-x-4 rounded-md focus:ring-2 focus:ring-offset-1 border-[#3D3931] bg-[#3D3931] border-2 text-white">
                             <FaGoogle></FaGoogle>
                             <p>Login with Google</p>
                         </button>
                     </div>
                 </div>
                 <p className="text-lg font-normal text-center sm:px-6">Do not have an account?
-                    <Link to='/register' className="underline ml-2 font-semibold text-[#0f2454]">Register</Link>
+                    <Link to='/register' className="underline ml-2 font-semibold text-[#3D3931]">Register</Link>
                 </p>
             </div>
         </div>

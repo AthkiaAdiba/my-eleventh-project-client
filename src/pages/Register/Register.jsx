@@ -49,8 +49,8 @@ const Register = () => {
     }
 
     return (
-        <div className="mt-16 pt-10 pb-10 bg-[#2095AE]">
-            <div className="w-full font-barlow mx-auto max-w-md p-8 space-y-3 rounded-none bg-[#2095AE] text-gray-100">
+        <div className="mt-16 pt-10 pb-10 bg-[#FBF6E8]">
+            <div className="w-full font-forum mx-auto max-w-md p-8 space-y-3 rounded-none bg-[#9B804E] text-gray-100">
                 <h1 className="text-2xl font-bold text-center text-white">Register</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                     <div className="space-y-1 text-lg">
@@ -94,10 +94,10 @@ const Register = () => {
                         {errors.password && <span className="text-red-700">{errors.password.message}</span>}
                     </div>
 
-                    <button className="block w-full p-3 text-center rounded-sm bg-[#0f2454] text-white text-lg">Register</button>
+                    <button className="block w-full p-3 text-center rounded-sm bg-[#3D3931] text-white text-lg">Register</button>
                 </form>
                 <p className="text-lg font-normal text-center sm:px-6 text-white">Already have an account?
-                    <Link to='/login' className="underline ml-2 font-semibold text-[#0f2454]">Login</Link>
+                    <Link to='/login' className="underline ml-2 font-semibold text-[#3D3931]">Login</Link>
                 </p>
             </div>
         </div>
