@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import DatePicker from "react-datepicker";
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,6 +9,7 @@ import axios from "axios";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Review from "../Review/Review";
+import Swal from "sweetalert2";
 
 
 
@@ -16,13 +17,20 @@ import Review from "../Review/Review";
 const RoomDetails = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate()
-    const loadedRoomDetails = useLoaderData();
-    const [roomDetails, setRoomDetails] = useState(loadedRoomDetails);
+    // const loadedRoomDetails = useLoaderData();
+    const [roomDetails, setRoomDetails] = useState([]);
+    const [isUpdate, setIsUpdate] = useState(true)
     const [reviews, setReviews] = useState([])
     const [startDate, setStartDate] = useState(new Date());
     const { _id, room_name, short_description, price_per_night, size, availability, room_images, special_offers } = roomDetails;
     // console.log(reviews)
-    
+    const { id } = useParams();
+    // console.log(id)
+
+    const refetch = () => {
+        setIsUpdate(!isUpdate)
+    }
+
 
 
     useEffect(() => {
@@ -31,7 +39,16 @@ const RoomDetails = () => {
                 // console.log(data.data)
                 setReviews(data.data)
             })
-    }, [_id])
+    }, [])
+
+    useEffect(() => {
+        axios.get(`https://my-eleventh-project-server.vercel.app/roomDetails/${id}`)
+            .then(data => {
+                // console.log(data.data)
+                setRoomDetails(data.data)
+
+            })
+    }, [id, user, isUpdate])
 
 
     const handleBookNow = () => {
@@ -65,17 +82,22 @@ const RoomDetails = () => {
                 // console.log(data.data)
                 // update availability
                 if (data.data.insertedId) {
-
                     axios.patch(`https://my-eleventh-project-server.vercel.app/availability/${_id}`, { availability: 'Not Available' })
                         .then(data => {
                             // console.log(data.data)
                             if (data.data.modifiedCount > 0) {
-                                setRoomDetails(loadedRoomDetails)
-                                
+                                refetch();
+
                             }
                         })
                 }
             })
+        Swal.fire({
+            title: 'Success!',
+            text: 'Your Comment Added Successfully',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+        })
     }
 
 
@@ -83,7 +105,7 @@ const RoomDetails = () => {
         <div className="px-[5%] pt-28 lg:pt-36 pb-20 bg-[#FBF6E8] font-forum">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {
-                    room_images.map(image => <img className="h-[300px] w-full" key={image.idx} src={image} alt="" />)
+                    room_images?.map(image => <img className="h-[300px] w-full" key={image?.idx} src={image} alt="" />)
                 }
             </div>
             {/* Details */}

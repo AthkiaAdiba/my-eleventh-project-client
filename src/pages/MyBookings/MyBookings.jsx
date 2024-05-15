@@ -62,6 +62,7 @@ const MyBookings = () => {
                         if (data.deletedCount > 0) {
                             // update availability
                             axios.patch(`https://my-eleventh-project-server.vercel.app/availability/${room_id}`, { availability: 'Available' })
+                                // eslint-disable-next-line no-unused-vars
                                 .then(data => {
                                     // console.log(data.data)
                                 })

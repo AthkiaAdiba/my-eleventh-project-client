@@ -42,7 +42,7 @@ const router = createBrowserRouter([
             {
                 path: '/roomDetails/:id',
                 element: <RoomDetails></RoomDetails>,
-                loader: ({params}) => fetch(`https://my-eleventh-project-server.vercel.app/roomDetails/${params.id}`)
+                // loader: ({params}) => fetch(`https://my-eleventh-project-server.vercel.app/roomDetails/${params.id}`)
             },
             {
                 path: '/updateDate/:id',

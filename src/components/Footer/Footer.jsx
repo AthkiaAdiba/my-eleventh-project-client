@@ -31,7 +31,7 @@ const Footer = () => {
                 <nav>
                     <h6 className="footer-title">Office Address</h6>
                     <p>Level-9, 50, Banani Tower, Banani, Dhaka</p>
-                    <p>Support:<a className="link link-hover">travol@gmail.com</a></p>
+                    <p>Support:<a className="link link-hover">herittage@gmail.com</a></p>
                     <p>HelpLine:<a className="link link-hover">01734569737</a></p>
                 </nav>
                 <div>
