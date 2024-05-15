@@ -39,7 +39,7 @@ const RoomDetails = () => {
                 // console.log(data.data)
                 setReviews(data.data)
             })
-    }, [])
+    }, [_id])
 
     useEffect(() => {
         axios.get(`https://my-eleventh-project-server.vercel.app/roomDetails/${id}`)
@@ -94,7 +94,7 @@ const RoomDetails = () => {
             })
         Swal.fire({
             title: 'Success!',
-            text: 'Your Comment Added Successfully',
+            text: 'Your have booked Successfully',
             icon: 'success',
             confirmButtonText: 'Cool'
         })
