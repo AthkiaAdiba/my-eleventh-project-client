@@ -15,6 +15,7 @@ const Navbar = () => {
         <NavLink className={({ isActive }) => isActive ? 'underline mr-4 text-[#9B804E]' : 'text-[#3D3931] mr-4'} to='/'>Home</NavLink>
         <NavLink className={({ isActive }) => isActive ? 'underline mr-4 text-[#9B804E]' : 'text-[#3D3931] dark:text-white mr-4'} to='/rooms'>Rooms</NavLink>
         <NavLink className={({ isActive }) => isActive ? 'underline mr-4 text-[#9B804E]' : 'text-[#3D3931] dark:text-white mr-4'} to='/contact'>Contact Us</NavLink>
+        <NavLink className={({ isActive }) => isActive ? 'underline mr-4 text-[#9B804E]' : 'text-[#3D3931] dark:text-white mr-4'} to='/about'>About</NavLink>
         {
             user && <>
                 {/* <NavLink className={({ isActive }) => isActive ? 'underline mr-4 text-[#2095AE]' : 'mr-4 text-[#0f2454] dark:text-white'} to='/rooms'>Rooms</NavLink> */}
